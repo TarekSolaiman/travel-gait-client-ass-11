@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./HomeCompo/Banner/Banner";
+import Service from "./HomeCompo/Service/Service";
 
 const Home = () => {
   return (
@@ -8,7 +9,7 @@ const Home = () => {
         <Banner />
       </section>
       <section>
-        <h1>Services Section</h1>
+        <Service />
       </section>
     </div>
   );

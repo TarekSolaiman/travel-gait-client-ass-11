@@ -32,6 +32,12 @@ const Header = () => {
             >
               Services
             </NavLink>
+            <NavLink
+              className="btn btn-ghost normal-case text-lg"
+              to="/addservices"
+            >
+              Add Services
+            </NavLink>
             <NavLink className="btn btn-ghost normal-case text-lg" to="/blog">
               Blog
             </NavLink>
