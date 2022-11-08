@@ -4,7 +4,7 @@ import Banner from "./HomeCompo/Banner/Banner";
 const Home = () => {
   return (
     <div>
-      <section>
+      <section className="container mx-auto">
         <Banner />
       </section>
       <section>

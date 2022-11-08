@@ -1,17 +1,27 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 import logo from "../../../images/logo.png";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.log(e.message));
+  };
   return (
     <div className="navbar bg-base-100">
-      <div className=" container mx-auto">
-        <div className="navbar-start">
-          <div className="navbar-center">
-            <NavLink to="/" className="">
-              <img className="w-16" src={logo} alt="" />
-            </NavLink>
-          </div>
+      <div className="flex justify-between container mx-auto">
+        <div className="navbar-center">
+          <Link
+            to="/"
+            className="flex justify-start items-center text-3xl text-orange-500 font-bold"
+          >
+            <img className="w-16 mr-2" src={logo} alt="" />
+            <h1>TRAVEL GAIT</h1>
+          </Link>
         </div>
 
         <div className="navbar-end flex items-end">
@@ -31,15 +41,31 @@ const Header = () => {
             >
               My Reviows
             </NavLink>
-            <NavLink className="btn btn-ghost normal-case text-lg" to="/login">
-              Login
-            </NavLink>
-            <NavLink className="btn btn-ghost normal-case text-lg" to="/signin">
-              Signin
-            </NavLink>
-            <button className="btn btn-ghost normal-case text-lg">
-              Log Out
-            </button>
+            {user?.email ? (
+              <>
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-ghost normal-case text-lg"
+                >
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  className="btn btn-ghost normal-case text-lg"
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  className="btn btn-ghost normal-case text-lg"
+                  to="/signin"
+                >
+                  Signin
+                </NavLink>
+              </>
+            )}
           </div>
           <div className="dropdown dropdown-bottom dropdown-end block lg:hidden">
             <label tabIndex={0} className="btn m-1">
@@ -63,13 +89,28 @@ const Header = () => {
               className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <NavLink>Homepage</NavLink>
+                <NavLink
+                  className="btn btn-ghost normal-case text-lg"
+                  to="/login"
+                >
+                  Login
+                </NavLink>
               </li>
               <li>
-                <NavLink>Portfolio</NavLink>
+                <NavLink
+                  className="btn btn-ghost normal-case text-lg"
+                  to="/signin"
+                >
+                  Signin
+                </NavLink>
               </li>
               <li>
-                <NavLink>About</NavLink>
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-ghost normal-case text-lg"
+                >
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
