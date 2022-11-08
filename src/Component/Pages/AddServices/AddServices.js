@@ -10,7 +10,16 @@ const AddServices = () => {
       price: form.price.value,
       detail: form.detail.value,
     };
-    console.log(newService);
+    fetch("http://localhost:5000/service", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newService),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e.message));
   };
   return (
     <div>
@@ -42,7 +51,7 @@ const AddServices = () => {
             type="text"
             name="detail"
             placeholder="Detail"
-            className="input input-bordered w-full my-5"
+            className="input input-bordered w-full h-28 my-5"
           ></textarea>
           <br />
           <button className="bg-orange-500 w-60 h-10 rounded text-lg font-semibold text-white mb-10">
