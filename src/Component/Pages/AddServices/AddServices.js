@@ -18,7 +18,10 @@ const AddServices = () => {
       body: JSON.stringify(newService),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        form.reset();
+        console.log(data);
+      })
       .catch((e) => console.log(e.message));
   };
   return (

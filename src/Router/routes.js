@@ -7,6 +7,7 @@ import Error from "../Component/Pages/ErrorPage/Error";
 import Home from "../Component/Pages/HomePage/Home";
 import Login from "../Component/Pages/LoginPage/Login";
 import MyReviow from "../Component/Pages/MyReviow/MyReviow";
+import OneService from "../Component/Pages/OneService/OneService";
 import Register from "../Component/Pages/RegisterPage/Register";
 import PrivateRout from "../Component/PrivateRout/PrivateRout";
 
@@ -27,6 +28,10 @@ export const routes = createBrowserRouter([
       {
         path: "/services",
         element: <AllServices />,
+      },
+      {
+        path: "/oneservices/:id",
+        element: <OneService />,
       },
       {
         path: "/addservices",
