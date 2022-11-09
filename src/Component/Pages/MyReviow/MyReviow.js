@@ -18,6 +18,20 @@ const MyReviow = () => {
       .catch((e) => console.log(e.message));
   }, [loadAgin]);
   // console.log(reviows);
+
+  // delete data function
+  const deleteReviow = (id) => {
+    // console.log(id);
+    fetch(`http://localhost:5000/reviowdlt/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLoadAgin(!loadAgin);
+        alert(data.message);
+      })
+      .catch((e) => console.log(e.message));
+  };
   return (
     <div className="container mx-auto my-20">
       <h1 className="text-5xl font-bold">My All Reviow</h1>
@@ -28,7 +42,11 @@ const MyReviow = () => {
           </h1>
         ) : (
           allreviows.map((revw) => (
-            <ReviowCart key={revw._id} revw={revw}></ReviowCart>
+            <ReviowCart
+              key={revw._id}
+              revw={revw}
+              deleteReviow={deleteReviow}
+            ></ReviowCart>
           ))
         )}
       </div>

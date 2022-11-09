@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviowCart = ({ revw }) => {
+const ReviowCart = ({ revw, deleteReviow }) => {
   return (
     <div className="flex justify-between items-center my-5 p-5 rounded-lg bg-slate-100">
       <div className="flex justify-between items-center">
@@ -32,7 +32,12 @@ const ReviowCart = ({ revw }) => {
       </div>
 
       <div>
-        <button className="w-8 h-8 mx-5 rounded bg-slate-200 text-center">
+        <button
+          onClick={() => {
+            deleteReviow(revw._id);
+          }}
+          className="w-8 h-8 mx-5 rounded bg-slate-200 text-center"
+        >
           X
         </button>
         <button className="w-8 h-8 mx-5 rounded bg-slate-200 text-center">
