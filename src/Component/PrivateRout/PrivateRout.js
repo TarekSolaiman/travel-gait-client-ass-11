@@ -6,7 +6,9 @@ const PrivateRout = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
   if (loading) {
-    return <h1 className="text-6xl text-center my-20">Loading</h1>;
+    return (
+      <div className="w-16 h-16 mx-auto my-60 border-4 border-dashed rounded-full animate-spin border-orange-400"></div>
+    );
   }
   if (user) {
     return children;
