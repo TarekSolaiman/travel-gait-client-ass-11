@@ -30,8 +30,9 @@ const Login = () => {
   const googleLogin = () => {
     loginGoogle()
       .then((res) => {
-        const user = res.user;
-        console.log(user);
+        // const user = res.user;
+        navigate(from, { replace: true });
+        // console.log(user);
       })
       .catch((e) => console.log(e.message));
   };

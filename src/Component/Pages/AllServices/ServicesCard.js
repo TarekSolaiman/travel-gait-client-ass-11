@@ -20,7 +20,7 @@ const ServicesCard = ({ service }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6 inline text-yellow-500"
+            className="w-6 h-6 inline mb-2 text-yellow-500"
           >
             <path
               strokeLinecap="round"

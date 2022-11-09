@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import icon1 from "../../../images/icons/Google.Icon.png";
+import icon2 from "../../../images/icons/github-icon.webp";
 
 const Register = () => {
-  const { user, signin } = useContext(AuthContext);
+  const { user, signin, loginGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
   // console.log(tarnam);
   const signinSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +19,16 @@ const Register = () => {
         const user = res.user;
         form.reset();
         console.log(user);
+      })
+      .catch((e) => console.log(e.message));
+  };
+
+  const googleLogin = () => {
+    loginGoogle()
+      .then((res) => {
+        // const user = res.user;
+        navigate("/");
+        // console.log(user);
       })
       .catch((e) => console.log(e.message));
   };
@@ -87,6 +100,14 @@ const Register = () => {
                 Login
               </Link>
             </p>
+            <div className="flex justify-center mb-10">
+              <button onClick={googleLogin}>
+                <img className="w-8 h-8 mr-5" src={icon1} alt="" />
+              </button>
+              <button>
+                <img className="w-8 h-8" src={icon2} alt="" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

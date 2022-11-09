@@ -31,11 +31,11 @@ const OneService = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviows(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((e) => console.log(e.message));
   }, [loadAgin, id]);
-  console.log(reviows);
+  // console.log(reviows);
 
   const reviowSend = (e) => {
     e.preventDefault();
@@ -44,6 +44,7 @@ const OneService = () => {
       email: user.email,
       userImg: user?.photoURL ? user.photoURL : "",
       reviow: form.reviow.value,
+      rating: form.rating.value,
       itemId: id,
     };
     fetch("http://localhost:5000/reviow", {
@@ -59,7 +60,7 @@ const OneService = () => {
         form.reset();
       })
       .catch((e) => console.log(e.message));
-    console.log(comment);
+    // console.log(comment);
   };
 
   // console.log(id);
@@ -79,7 +80,7 @@ const OneService = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6 inline text-yellow-500"
+            className="w-6 h-6 inline mb-2 text-yellow-500"
           >
             <path
               strokeLinecap="round"
@@ -115,6 +116,39 @@ const OneService = () => {
               placeholder="Type Reviow"
               className="input input-bordered w-4/5"
             ></textarea>
+            <div className="rating flex items-center mx-3">
+              <input
+                type="radio"
+                name="rating"
+                defaultValue="1"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating"
+                defaultValue="2"
+                className="mask mask-star-2 bg-orange-400"
+                defaultChecked
+              />
+              <input
+                type="radio"
+                name="rating"
+                defaultValue="3"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating"
+                defaultValue="4"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating"
+                defaultValue="5"
+                className="mask mask-star-2 bg-orange-400"
+              />
+            </div>
             <button
               className="h-10 px-5 my-auto mx-10 bg-orange-500 rounded-lg text-white font-semibold"
               type="submit"

@@ -20,11 +20,17 @@ const MyReviow = () => {
   // console.log(reviows);
   return (
     <div className="container mx-auto my-20">
-      <h1>This is My Reviow</h1>
+      <h1 className="text-5xl font-bold">My All Reviow</h1>
       <div className="lg:w-3/4 mx-auto my-20">
-        {allreviows.map((revw) => (
-          <ReviowCart key={revw._id} revw={revw}></ReviowCart>
-        ))}
+        {allreviows.length === 0 ? (
+          <h1 className="text-2xl font-bold text-yellow-400">
+            Please Add some reviow
+          </h1>
+        ) : (
+          allreviows.map((revw) => (
+            <ReviowCart key={revw._id} revw={revw}></ReviowCart>
+          ))
+        )}
       </div>
     </div>
   );
