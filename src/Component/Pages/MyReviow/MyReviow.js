@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
-import ReviowCart from "../OneService/ReviowCart";
+import MyReviowCart from "./MyReviowCart";
 
 const MyReviow = () => {
   const { user } = useContext(AuthContext);
@@ -42,11 +42,11 @@ const MyReviow = () => {
           </h1>
         ) : (
           allreviows.map((revw) => (
-            <ReviowCart
+            <MyReviowCart
               key={revw._id}
               revw={revw}
               deleteReviow={deleteReviow}
-            ></ReviowCart>
+            ></MyReviowCart>
           ))
         )}
       </div>

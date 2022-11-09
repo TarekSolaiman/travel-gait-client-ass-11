@@ -9,6 +9,7 @@ import Login from "../Component/Pages/LoginPage/Login";
 import MyReviow from "../Component/Pages/MyReviow/MyReviow";
 import OneService from "../Component/Pages/OneService/OneService";
 import Register from "../Component/Pages/RegisterPage/Register";
+import UpdateReviow from "../Component/Pages/UpdateReviow/UpdateReviow";
 import PrivateRout from "../Component/PrivateRout/PrivateRout";
 
 export const routes = createBrowserRouter([
@@ -40,6 +41,10 @@ export const routes = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/upreviow/:id",
+        element: <UpdateReviow />,
       },
       {
         path: "/reviows",

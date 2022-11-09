@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ReviowCart = ({ revw }) => {
+const MyReviowCart = ({ revw, deleteReviow }) => {
   return (
     <div className="flex justify-between items-center my-5 p-5 rounded-lg bg-slate-100">
       <div className="flex justify-between items-center">
@@ -12,7 +13,7 @@ const ReviowCart = ({ revw }) => {
         <p className="text-lg font-semibold text-gray-500">{revw.reviow}</p>
       </div>
       <div>
-        <p>
+        <p className=" text-md font-semibold text-gray-500">
           Rating : {revw.rating}{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +31,24 @@ const ReviowCart = ({ revw }) => {
           </svg>
         </p>
       </div>
+
+      <div>
+        <button
+          onClick={() => {
+            deleteReviow(revw._id);
+          }}
+          className="w-8 h-8 mx-5 rounded bg-slate-200 text-center"
+        >
+          X
+        </button>
+        <Link to={`/upreviow/${revw._id}`}>
+          <button className="w-8 h-8 mx-5 rounded bg-slate-200 text-center">
+            E
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default ReviowCart;
+export default MyReviowCart;
