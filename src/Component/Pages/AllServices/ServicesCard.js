@@ -5,13 +5,15 @@ const ServicesCard = ({ service }) => {
   const { photo, _id, rating, serviceName, price, detail } = service;
   //   console.log(service);
   return (
-    <div className="flex justify-between items-center my-5 p-5 shadow-xl rounded-xl">
+    <div className="lg:flex justify-between items-center my-20 p-5 bg-gray-100 shadow-xl rounded-xl">
       <div>
-        <img className="w-60 rounded-lg" src={photo} alt="" />
+        <img className="w-60 rounded-lg mx-auto" src={photo} alt="" />
       </div>
-      <div className="w-80">
+      <div className="w-80 mx-auto">
         <p className="text-3xl mb-5 font-bold">{serviceName}</p>
-        <p>{detail?.length <= 100 ? detail : detail.slice(2, 100) + "...."}</p>
+        <p className="text-justify">
+          {detail?.length <= 100 ? detail : detail.slice(2, 100) + "...."}
+        </p>
         <p className="text-xl font-semibold text-gray-500">
           Rating : {rating}{" "}
           <svg
@@ -36,7 +38,7 @@ const ServicesCard = ({ service }) => {
         </p>
         <Link to={`/oneservices/${_id}`}>
           <button className="px-10 py-2 bg-orange-500 rounded text-lg font-bold text-white">
-            Veow
+            View
           </button>
         </Link>
       </div>

@@ -15,7 +15,9 @@ const Home = () => {
       </section>
       <section className="my-20">
         <div>
-          <h1 className="text-5xl font-bold">Some special places</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold my-5">
+            Some Special Places
+          </h1>
           <p className="text-lg font-semibold text-gray-500">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             <br />
@@ -28,7 +30,7 @@ const Home = () => {
             <div className="hero-content flex-col lg:flex-row">
               <img src={ladak} alt="" className="rounded-lg shadow-2xl w-1/2" />
               <div className="w-1/2">
-                <h1 className="text-5xl font-bold">Pangong Lake</h1>
+                <h1 className="text-3xl lg:text-5xl font-bold">Pangong Lake</h1>
                 <p className="py-6 text-justify">
                   Pangong Lake, one of the most famous lakes in Leh Ladakh,
                   derives its name from the Tibetan word, “Pangong Tso”, which
@@ -48,7 +50,7 @@ const Home = () => {
           <div className="hero my-40">
             <div className="hero-content flex-col lg:flex-row">
               <div className="w-1/2">
-                <h1 className="text-3xl font-bold">
+                <h1 className="text-xl lg:text-3xl font-bold">
                   These valleys in Kashmir are breathtakingly beautiful!
                 </h1>
                 <p className="py-6 text-justify">

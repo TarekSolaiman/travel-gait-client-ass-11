@@ -45,7 +45,7 @@ const MyReviow = () => {
   };
   return (
     <div className="container mx-auto my-20">
-      <h1 className="text-5xl font-bold">My All Reviow</h1>
+      <h1 className="text-4xl lg:text-5xl font-bold">My All Reviow</h1>
       <div className="lg:w-3/4 mx-auto my-20">
         {allreviows.length === 0 ? (
           <h1 className="text-2xl font-bold text-yellow-400">

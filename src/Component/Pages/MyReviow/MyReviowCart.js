@@ -6,14 +6,16 @@ const MyReviowCart = ({ revw, deleteReviow }) => {
     <div className="flex justify-between items-center my-5 p-5 rounded-lg bg-slate-100">
       <div className="flex justify-between items-center">
         <img
-          className="w-10 h-10 rounded-full mr-10"
+          className="w-10 h-10 rounded-full mr-3 lg:mr-10"
           src={revw.userImg}
           alt=""
         />
-        <p className="text-lg font-semibold text-gray-500">{revw.reviow}</p>
+        <p className="text-md lg:text-lg font-semibold text-gray-500">
+          {revw.reviow}
+        </p>
       </div>
       <div>
-        <p className=" text-md font-semibold text-gray-500">
+        <p className="text-md lg:font-semibold text-gray-500">
           Rating : {revw.rating}{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +23,7 @@ const MyReviowCart = ({ revw, deleteReviow }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6 inline mb-2 text-yellow-500"
+            className="w-5 h-5lg:w-6 lg:h-6 inline mb-2 text-yellow-500"
           >
             <path
               strokeLinecap="round"
@@ -37,7 +39,7 @@ const MyReviowCart = ({ revw, deleteReviow }) => {
           onClick={() => {
             deleteReviow(revw._id);
           }}
-          className="w-8 h-8 mx-5 rounded bg-slate-200 text-center"
+          className="w-8 h-8 lg:mx-5 rounded bg-slate-200 text-center"
         >
           X
         </button>

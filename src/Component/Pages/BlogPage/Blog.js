@@ -3,7 +3,9 @@ import React from "react";
 const Blog = () => {
   return (
     <div>
-      <h1 className="text-5xl font-bold my-20">Some Questions and Answer</h1>
+      <h1 className="text-3xl lg:text-5xl font-bold my-20">
+        Some Questions and Answer
+      </h1>
       <div className="text-start w-4/5 mx-auto my-10">
         <div className="my-10 bg-gray-100 rounded-xl p-3">
           <h1 className="text-2xl font-semibold my-10">

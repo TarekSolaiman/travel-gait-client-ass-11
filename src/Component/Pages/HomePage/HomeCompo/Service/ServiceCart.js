@@ -8,7 +8,7 @@ const ServiceCart = ({ service }) => {
   // console.log(service);
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className="card card-compact bg-base-100 shadow-xl">
         <PhotoProvider>
           <PhotoView src={photo}>
             <img className="h-52 rounded-t-xl" src={photo} alt="" />

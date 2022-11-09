@@ -1,4 +1,5 @@
 import React from "react";
+import avatar from "../../../images/avatar.png";
 
 const ReviowCart = ({ revw }) => {
   return (
@@ -6,7 +7,7 @@ const ReviowCart = ({ revw }) => {
       <div className="flex justify-between items-center">
         <img
           className="w-10 h-10 rounded-full mr-10"
-          src={revw.userImg}
+          src={revw.userImg ? revw.userImg : avatar}
           alt=""
         />
         <div className="text-start">

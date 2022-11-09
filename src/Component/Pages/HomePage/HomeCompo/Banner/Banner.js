@@ -5,12 +5,11 @@ import img2 from "../../../../../images/banner/2.jpg";
 import img3 from "../../../../../images/banner/3.jpg";
 import img4 from "../../../../../images/banner/4.jpg";
 import img5 from "../../../../../images/banner/4.jpg";
-import img6 from "../../../../../images/banner/5.jpg";
 
 const bannerData = [
   {
     image: img1,
-    prev: 6,
+    prev: 5,
     id: 1,
     next: 2,
   },
@@ -36,12 +35,6 @@ const bannerData = [
     image: img5,
     prev: 4,
     id: 5,
-    next: 6,
-  },
-  {
-    image: img6,
-    prev: 5,
-    id: 6,
     next: 1,
   },
 ];

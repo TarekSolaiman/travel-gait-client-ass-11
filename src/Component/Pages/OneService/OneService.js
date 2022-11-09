@@ -89,10 +89,10 @@ const OneService = () => {
 
   // console.log(id);
   return (
-    <div>
+    <div className="my-20">
       <div>
         <img className="w-3/5 mx-auto rounded-lg" src={photo} alt="" />
-        <h1 className="text-5xl font-bold  my-5">{serviceName}</h1>
+        <h1 className="text-3xl lg:text-5xl font-bold  my-5">{serviceName}</h1>
         <p className="text-2xl text-red-500 font-bold my-5">
           Price : {price} $
         </p>

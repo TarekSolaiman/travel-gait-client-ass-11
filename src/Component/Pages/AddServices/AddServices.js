@@ -33,7 +33,9 @@ const AddServices = () => {
   };
   return (
     <div>
-      <h1 className="text-5xl font-semibold my-5">Add some Services</h1>
+      <h1 className="text-4xl lg:text-5xl font-semibold my-5">
+        Add some Services
+      </h1>
       <div className="w-5/6 mx-auto">
         <form onSubmit={serviceAdd}>
           <input
@@ -64,7 +66,7 @@ const AddServices = () => {
             className="input input-bordered w-full h-28 my-5"
           ></textarea>
           <br />
-          <button className="bg-orange-500 w-60 h-10 rounded text-lg font-semibold text-white mb-10">
+          <button className="bg-orange-500 w-60 p-3 rounded-lg text-lg font-semibold text-white mb-10">
             Add Service
           </button>
         </form>
