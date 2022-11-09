@@ -9,7 +9,10 @@ const ReviowCart = ({ revw }) => {
           src={revw.userImg}
           alt=""
         />
-        <p className="text-lg font-semibold text-gray-500">{revw.reviow}</p>
+        <div className="text-start">
+          <p className="text-lg font-semibold text-gray-700">{revw.reviow}</p>
+          <p className="text-sm text-gray-400">{revw.title}</p>
+        </div>
       </div>
       <div>
         <p>

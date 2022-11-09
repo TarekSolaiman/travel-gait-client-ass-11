@@ -36,7 +36,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/addservices",
-        element: <AddServices />,
+        element: (
+          <PrivateRout>
+            <AddServices />
+          </PrivateRout>
+        ),
       },
       {
         path: "/blog",
@@ -44,7 +48,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/upreviow/:id",
-        element: <UpdateReviow />,
+        element: (
+          <PrivateRout>
+            <UpdateReviow />,
+          </PrivateRout>
+        ),
       },
       {
         path: "/reviows",

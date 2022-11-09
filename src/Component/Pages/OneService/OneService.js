@@ -40,26 +40,32 @@ const OneService = () => {
   const reviowSend = (e) => {
     e.preventDefault();
     const form = e.target;
-    const comment = {
-      email: user.email,
-      userImg: user?.photoURL ? user.photoURL : "",
-      reviow: form.reviow.value,
-      rating: form.rating.value,
-      itemId: id,
-    };
-    fetch("http://localhost:5000/reviow", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(comment),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setLoadAgin(!loadAgin);
-        form.reset();
+    if (user?.email) {
+      const comment = {
+        email: user.email,
+        userImg: user?.photoURL ? user.photoURL : "",
+        reviow: form.reviow.value,
+        rating: form.rating.value,
+        title: serviceName,
+        itemId: id,
+      };
+      fetch("http://localhost:5000/reviow", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(comment),
       })
-      .catch((e) => console.log(e.message));
+        .then((res) => res.json())
+        .then((data) => {
+          setLoadAgin(!loadAgin);
+          form.reset();
+        })
+        .catch((e) => console.log(e.message));
+    } else {
+      alert("Please login to add a reviow");
+      form.reset();
+    }
     // console.log(comment);
   };
 
@@ -114,7 +120,7 @@ const OneService = () => {
               type="text"
               name="reviow"
               placeholder="Type Reviow"
-              className="input input-bordered w-4/5"
+              className="input input-bordered w-4/5 h-20"
             ></textarea>
             <div className="rating flex items-center mx-3">
               <input

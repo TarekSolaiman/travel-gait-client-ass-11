@@ -32,23 +32,25 @@ const Header = () => {
             >
               Services
             </NavLink>
-            <NavLink
-              className="btn btn-ghost normal-case text-lg"
-              to="/addservices"
-            >
-              Add Services
-            </NavLink>
+
             <NavLink className="btn btn-ghost normal-case text-lg" to="/blog">
               Blog
             </NavLink>
-            <NavLink
-              className="btn btn-ghost normal-case text-lg"
-              to="/reviows"
-            >
-              My Reviows
-            </NavLink>
+
             {user?.email ? (
               <>
+                <NavLink
+                  className="btn btn-ghost normal-case text-lg"
+                  to="/addservices"
+                >
+                  Add Services
+                </NavLink>
+                <NavLink
+                  className="btn btn-ghost normal-case text-lg"
+                  to="/reviows"
+                >
+                  My Reviows
+                </NavLink>
                 <button
                   onClick={handleLogout}
                   className="btn btn-ghost normal-case text-lg"
