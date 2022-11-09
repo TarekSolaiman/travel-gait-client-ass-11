@@ -10,9 +10,8 @@ const AllServices = () => {
       .catch((e) => console.log(e.message));
   }, []);
   return (
-    <div className=" container mx-auto">
-      <h1 className="text-5xl font-bold">Ther is my all services</h1>
-      <p>ther {allservices.length} services</p>
+    <div className=" container mx-auto my-20">
+      <h1 className="text-5xl font-bold my-10">Ther is my all services</h1>
       <div className="w-3/4 mx-auto">
         {allservices.map((service) => (
           <ServicesCard key={service._id} service={service}></ServicesCard>
