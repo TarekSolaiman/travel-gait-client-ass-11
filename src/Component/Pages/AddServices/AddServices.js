@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const AddServices = () => {
   const serviceAdd = (e) => {
@@ -20,9 +21,15 @@ const AddServices = () => {
       .then((res) => res.json())
       .then((data) => {
         form.reset();
-        console.log(data);
+        toast.success("Success fully add service", {
+          autoClose: 1000,
+        });
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   };
   return (
     <div>

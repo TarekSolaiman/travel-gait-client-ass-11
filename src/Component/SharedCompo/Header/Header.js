@@ -2,19 +2,24 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 import logo from "../../../images/logo.png";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        toast.warning("Success fully Logout", {
+          autoClose: 1000,
+        });
+      })
       .catch((e) => console.log(e.message));
   };
   return (
     <div className="navbar bg-base-100">
       <div className="flex justify-between container mx-auto">
-        <div className="navbar-center">
+        <div className="">
           <Link
             to="/"
             className="flex justify-start items-center text-3xl text-orange-500 font-bold"
@@ -24,7 +29,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="navbar-end flex items-end">
+        <div className="flex items-end">
           <div className="hidden lg:block">
             <NavLink
               className="btn btn-ghost normal-case text-lg"
@@ -99,27 +104,66 @@ const Header = () => {
               <li>
                 <NavLink
                   className="btn btn-ghost normal-case text-lg"
-                  to="/login"
+                  to="/services"
                 >
-                  Login
+                  Services
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   className="btn btn-ghost normal-case text-lg"
-                  to="/signin"
+                  to="/blog"
                 >
-                  Signin
+                  Blog
                 </NavLink>
               </li>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-ghost normal-case text-lg"
-                >
-                  Log Out
-                </button>
-              </li>
+              {user?.email ? (
+                <>
+                  <li>
+                    <NavLink
+                      className="btn btn-ghost normal-case text-lg"
+                      to="/addservices"
+                    >
+                      Add Services
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="btn btn-ghost normal-case text-lg"
+                      to="/reviows"
+                    >
+                      My Reviows
+                    </NavLink>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="btn btn-ghost normal-case text-lg"
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <NavLink
+                      className="btn btn-ghost normal-case text-lg"
+                      to="/login"
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="btn btn-ghost normal-case text-lg"
+                      to="/signin"
+                    >
+                      Signin
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

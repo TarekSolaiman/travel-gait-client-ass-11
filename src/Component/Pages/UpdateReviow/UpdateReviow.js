@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateReviow = () => {
   const { id } = useParams();
@@ -29,11 +30,18 @@ const UpdateReviow = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Success fully Update reviow", {
+          autoClose: 1000,
+        });
         navigate("/reviows");
-        console.log(data);
+        // console.log(data);
       })
-      .catch((e) => console.log(e.message));
-    console.log(editReviow);
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
+    // console.log(editReviow);
   };
 
   return (

@@ -19,6 +19,9 @@ const ServiceCart = ({ service }) => {
           <p className="text-start">
             {detail?.length <= 100 ? detail : detail.slice(2, 100) + "...."}
           </p>
+          <p className="text-start text-lg font-semibold text-gray-600">
+            Price : <span className="text-orange-500">{price}</span> $
+          </p>
           <div className="card-actions justify-between items-center">
             <p className="text-start text-xl font-semibold text-gray-500">
               Rating : {rating}{" "}

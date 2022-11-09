@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/AuthProvider";
 import ReviowCart from "./ReviowCart";
 
@@ -21,7 +22,11 @@ const OneService = () => {
         setDetails(data);
         // console.log(data);
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   }, [id]);
   // console.log(user);
 
@@ -33,7 +38,11 @@ const OneService = () => {
         setReviows(data);
         // console.log(data);
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   }, [loadAgin, id]);
   // console.log(reviows);
 
@@ -60,10 +69,19 @@ const OneService = () => {
         .then((data) => {
           setLoadAgin(!loadAgin);
           form.reset();
+          toast.success("Success fully send reviow", {
+            autoClose: 1000,
+          });
         })
-        .catch((e) => console.log(e.message));
+        .catch((e) => {
+          toast.error(e.message, {
+            autoClose: 1000,
+          });
+        });
     } else {
-      alert("Please login to add a reviow");
+      toast.warning("Please login to add a reviow", {
+        autoClose: 1000,
+      });
       form.reset();
     }
     // console.log(comment);

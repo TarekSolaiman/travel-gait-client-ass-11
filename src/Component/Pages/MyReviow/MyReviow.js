@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
+import { toast } from "react-toastify";
 import MyReviowCart from "./MyReviowCart";
 
 const MyReviow = () => {
@@ -15,7 +16,11 @@ const MyReviow = () => {
         setAllreviows(data);
         // console.log(data);
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   }, [loadAgin]);
   // console.log(reviows);
 
@@ -28,9 +33,15 @@ const MyReviow = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoadAgin(!loadAgin);
-        alert(data.message);
+        toast.success("Success fully Delete", {
+          autoClose: 1000,
+        });
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   };
   return (
     <div className="container mx-auto my-20">

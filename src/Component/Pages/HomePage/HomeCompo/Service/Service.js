@@ -19,7 +19,7 @@ const Service = () => {
         excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
         id nisi.
       </p>
-      <div className="grid grid-cols-3 my-20 container mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-20 container mx-auto">
         {services.map((service) => (
           <ServiceCart key={service._id} service={service}></ServiceCart>
         ))}

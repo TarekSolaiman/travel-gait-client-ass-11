@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import { toast } from "react-toastify";
 import icon1 from "../../../images/icons/Google.Icon.png";
 import icon2 from "../../../images/icons/github-icon.webp";
 
@@ -16,11 +17,16 @@ const Register = () => {
 
     signin(email, password)
       .then((res) => {
-        const user = res.user;
         form.reset();
-        console.log(user);
+        toast.success("Success fully Signin", {
+          autoClose: 1000,
+        });
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   };
 
   const googleLogin = () => {
