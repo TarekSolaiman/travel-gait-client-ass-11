@@ -8,7 +8,7 @@ import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
   useTitle("Login");
-  const { user, login, loginGoogle } = useContext(AuthContext);
+  const { login, loginGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
