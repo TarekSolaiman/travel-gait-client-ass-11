@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const Service = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/services?size=${3}`)
+    fetch(
+      `https://travel-gait-srever-tareksolaiman.vercel.app/services?size=${3}`
+    )
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((e) => console.log(e.message));

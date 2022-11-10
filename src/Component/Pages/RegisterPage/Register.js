@@ -19,7 +19,25 @@ const Register = () => {
 
     signin(email, password)
       .then((res) => {
+        const user = res.user;
+        const currentUser = {
+          email: user.email,
+        };
         form.reset();
+        fetch("https://travel-gait-srever-tareksolaiman.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("travel-token", data.token);
+            navigate("/");
+            // console.log(data)
+          })
+          .catch((e) => console.log(e.message));
         toast.success("Success fully Signin", {
           autoClose: 1000,
         });
@@ -34,7 +52,23 @@ const Register = () => {
   const googleLogin = () => {
     loginGoogle()
       .then((res) => {
-        // const user = res.user;
+        const user = res.user;
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("https://travel-gait-srever-tareksolaiman.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("travel-token", data.token);
+            // console.log(data)
+          })
+          .catch((e) => console.log(e.message));
         toast.success("Success fully Signin", {
           autoClose: 1000,
         });
@@ -81,6 +115,7 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  required
                   className="input input-bordered"
                 />
               </div>
@@ -92,6 +127,7 @@ const Register = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                   className="input input-bordered"
                 />
                 <label className="label">

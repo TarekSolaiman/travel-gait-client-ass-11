@@ -13,7 +13,7 @@ const AddServices = () => {
       price: form.price.value,
       detail: form.detail.value,
     };
-    fetch("http://localhost:5000/service", {
+    fetch("https://travel-gait-srever-tareksolaiman.vercel.app/service", {
       method: "POST",
       headers: {
         "content-type": "application/json",

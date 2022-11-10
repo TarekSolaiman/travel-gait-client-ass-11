@@ -26,7 +26,7 @@ const Login = () => {
           email: user.email,
         };
         form.reset();
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://travel-gait-srever-tareksolaiman.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -55,7 +55,24 @@ const Login = () => {
   const googleLogin = () => {
     loginGoogle()
       .then((res) => {
-        // const user = res.user;
+        const user = res.user;
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("https://travel-gait-srever-tareksolaiman.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("travel-token", data.token);
+            // console.log(data)
+          })
+          .catch((e) => console.log(e.message));
+
         toast.success("Success fully login", {
           autoClose: 1000,
         });
@@ -92,6 +109,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  required
                   className="input input-bordered"
                 />
               </div>
@@ -103,6 +121,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                   className="input input-bordered"
                 />
                 <label className="label">

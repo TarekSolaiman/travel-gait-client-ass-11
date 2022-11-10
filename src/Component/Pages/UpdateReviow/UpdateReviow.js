@@ -9,7 +9,7 @@ const UpdateReviow = () => {
   const navigate = useNavigate();
   const [newreviow, setNewreviow] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/onereviow/${id}`)
+    fetch(`https://travel-gait-srever-tareksolaiman.vercel.app/onereviow/${id}`)
       .then((res) => res.json())
       .then((data) => setNewreviow(data))
       .catch((e) => console.log(e.message));
@@ -23,13 +23,16 @@ const UpdateReviow = () => {
       reviow: form.reviow.value,
       rating: form.rating.value,
     };
-    fetch(`http://localhost:5000/upreviow/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(editReviow),
-    })
+    fetch(
+      `https://travel-gait-srever-tareksolaiman.vercel.app/upreviow/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(editReviow),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         toast.success("Success fully Update reviow", {

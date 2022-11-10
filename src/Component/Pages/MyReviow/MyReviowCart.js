@@ -3,17 +3,19 @@ import avater from "../../../images/avatar.png";
 import { Link } from "react-router-dom";
 
 const MyReviowCart = ({ revw, deleteReviow }) => {
+  console.log(revw.userImg);
   return (
     <div className="flex justify-between items-center my-5 p-5 rounded-lg bg-slate-100">
       <div className="flex justify-between items-center">
         <img
           className="w-10 h-10 rounded-full mr-3 lg:mr-10"
-          src={revw.userImg ? revw.userImg : avater}
+          src={revw?.userImg ? revw.userImg : avater}
           alt=""
         />
-        <p className="text-md lg:text-lg font-semibold text-gray-500">
-          {revw.reviow}
-        </p>
+        <div className="text-start">
+          <p className="text-lg font-semibold text-gray-700">{revw.reviow}</p>
+          <p className="text-sm text-gray-400">{revw.title}</p>
+        </div>
       </div>
       <div>
         <p className="text-md lg:font-semibold text-gray-500">

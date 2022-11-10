@@ -9,14 +9,18 @@ const MyReviow = () => {
   const { user, logOut } = useContext(AuthContext);
   const [allreviows, setAllreviows] = useState([]);
   const [loadAgin, setLoadAgin] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   // loade all reviow data in db
   useEffect(() => {
-    fetch(`http://localhost:5000/allreviows?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("travel-token")}`,
-      },
-    })
+    fetch(
+      `https://travel-gait-srever-tareksolaiman.vercel.app/allreviows?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("travel-token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           logOut()
@@ -31,6 +35,7 @@ const MyReviow = () => {
       })
       .then((data) => {
         setAllreviows(data);
+        setLoader(false);
         console.log(data);
       })
       .catch((e) => {
@@ -44,9 +49,12 @@ const MyReviow = () => {
   // delete data function
   const deleteReviow = (id) => {
     // console.log(id);
-    fetch(`http://localhost:5000/reviowdlt/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://travel-gait-srever-tareksolaiman.vercel.app/reviowdlt/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoadAgin(!loadAgin);
@@ -60,6 +68,12 @@ const MyReviow = () => {
         });
       });
   };
+  if (loader) {
+    return (
+      <div className="w-16 h-16 mx-auto my-60 border-4 border-dashed rounded-full animate-spin border-orange-400"></div>
+    );
+  }
+
   return (
     <div className="container mx-auto my-20">
       <h1 className="text-4xl lg:text-5xl font-bold">My All Reviow</h1>

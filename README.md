@@ -1,3 +1,18 @@
+/==================================MY WEBSITE DETAIL================================/
+/======================================TRAVER GAIT==================================/
+
+/ web sati name is Travel Gait (this is gite services website )
+/ Ther is one navber and so many pages and allso some privet route
+/ in the home page you cane see my 3 services and you click see all button go all serices page youo can see all services
+/ you cane do comment reviow with rating
+/ and allso see your all reviow and edit,delete a reviow
+/ iam allso added verifay user with firebase and jwt token
+/ iam use firebase hosting for the live site
+/ and allso vercel hosting for the server site
+
+/=======================Thank you for the vesit my code and website=================/
+/==================================MY WEBSITE DETAIL================================/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

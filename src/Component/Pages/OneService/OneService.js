@@ -11,17 +11,21 @@ const OneService = () => {
   const [details, setDetails] = useState([]);
   const [reviows, setReviows] = useState([]);
   const [loadAgin, setLoadAgin] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const { id } = useParams();
-
+  console.log(details.length);
   const { photo, rating, serviceName, price, detail } = details;
 
   // loade services data in db
   useEffect(() => {
-    fetch(`http://localhost:5000/oneservice/${id}`)
+    fetch(
+      `https://travel-gait-srever-tareksolaiman.vercel.app/oneservice/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setDetails(data);
+        setLoader(false);
         // console.log(data);
       })
       .catch((e) => {
@@ -34,7 +38,7 @@ const OneService = () => {
 
   // loade all reviow data in db
   useEffect(() => {
-    fetch(`http://localhost:5000/reviows/${id}`)
+    fetch(`https://travel-gait-srever-tareksolaiman.vercel.app/reviows/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviows(data);
@@ -60,7 +64,7 @@ const OneService = () => {
         title: serviceName,
         itemId: id,
       };
-      fetch("http://localhost:5000/reviow", {
+      fetch("https://travel-gait-srever-tareksolaiman.vercel.app/reviow", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -90,6 +94,11 @@ const OneService = () => {
   };
 
   // console.log(id);
+  if (loader) {
+    return (
+      <div className="w-16 h-16 mx-auto my-60 border-4 border-dashed rounded-full animate-spin border-orange-400"></div>
+    );
+  }
   return (
     <div className="my-20">
       <div>
