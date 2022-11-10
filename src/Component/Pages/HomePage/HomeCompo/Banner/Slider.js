@@ -15,7 +15,7 @@ const Slider = ({ data }) => {
             <br />
             Travel Gait
           </h1>
-          <h1 className="text-white lg:text-lg font-semibold mt-5">
+          <h1 className="text-white text-sm lg:text-lg font-semibold lg:mt-5">
             Travel is the ideal place to test yourself,
             <br />
             It pushes people to their limits and gets them outside their comfort
@@ -23,7 +23,7 @@ const Slider = ({ data }) => {
           </h1>
         </div>
       </div>
-      <div className="absolute flex justify-center transform left-5 right-5 bottom-5">
+      <div className="absolute flex justify-center transform left-5 right-5 bottom-0 lg:bottom-5">
         <a
           href={`#slide${prev}`}
           className="btn btn-outline btn-warning rounded-full w-12 h-12 mr-5"
