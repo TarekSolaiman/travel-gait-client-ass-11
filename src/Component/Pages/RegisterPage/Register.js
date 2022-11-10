@@ -4,8 +4,10 @@ import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-toastify";
 import icon1 from "../../../images/icons/Google.Icon.png";
 import icon2 from "../../../images/icons/github-icon.webp";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
+  useTitle("signin");
   const { user, signin, loginGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   // console.log(tarnam);
@@ -33,10 +35,17 @@ const Register = () => {
     loginGoogle()
       .then((res) => {
         // const user = res.user;
+        toast.success("Success fully Signin", {
+          autoClose: 1000,
+        });
         navigate("/");
         // console.log(user);
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   };
   return (
     <div>

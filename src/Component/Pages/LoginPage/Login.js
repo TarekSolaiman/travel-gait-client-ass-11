@@ -4,8 +4,10 @@ import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-toastify";
 import icon1 from "../../../images/icons/Google.Icon.png";
 import icon2 from "../../../images/icons/github-icon.webp";
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Login");
   const { user, login, loginGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,9 +21,26 @@ const Login = () => {
 
     login(email, password)
       .then((res) => {
+        const user = res.user;
+        const currentUser = {
+          email: user.email,
+        };
         form.reset();
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("travel-token", data.token);
+            // console.log(data)
+          })
+          .catch((e) => console.log(e.message));
         navigate(from, { replace: true });
-        toast.success("Please chake your email and verifiy your mailid", {
+        toast.success("Success fully login", {
           autoClose: 1000,
         });
       })
@@ -37,10 +56,17 @@ const Login = () => {
     loginGoogle()
       .then((res) => {
         // const user = res.user;
+        toast.success("Success fully login", {
+          autoClose: 1000,
+        });
         navigate(from, { replace: true });
         // console.log(user);
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        toast.error(e.message, {
+          autoClose: 1000,
+        });
+      });
   };
 
   return (

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../../../hooks/useTitle";
 
 const UpdateReviow = () => {
+  useTitle("update");
   const { id } = useParams();
   const navigate = useNavigate();
   const [newreviow, setNewreviow] = useState([]);

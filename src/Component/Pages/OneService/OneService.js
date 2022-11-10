@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 import ReviowCart from "./ReviowCart";
 
 const OneService = () => {
+  useTitle("service");
   const { user } = useContext(AuthContext);
   const [details, setDetails] = useState([]);
   const [reviows, setReviows] = useState([]);

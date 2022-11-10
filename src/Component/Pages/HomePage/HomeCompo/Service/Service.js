@@ -14,10 +14,9 @@ const Service = () => {
     <div>
       <h1 className="text-5xl font-bold my-5">My All Services</h1>
       <p className="text-lg font-semibold text-gray-500">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+        I can provied you best Gait services in your traveling ,
         <br />
-        excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-        id nisi.
+        It's make your traveling experience much better , enjoyable and exciting
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-20 container mx-auto">
         {services.map((service) => (

@@ -3,8 +3,10 @@ import Banner from "./HomeCompo/Banner/Banner";
 import Service from "./HomeCompo/Service/Service";
 import ladak from "../../../images/travelPlase/ladakh.jpg";
 import kasmir from "../../../images/travelPlase/kasmir.jpg";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <div>
       <section className="container mx-auto">
@@ -19,10 +21,10 @@ const Home = () => {
             Some Special Places
           </h1>
           <p className="text-lg font-semibold text-gray-500">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+            I can provied you best Gait services in your traveling ,
             <br />
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            It's make your traveling experience much better , enjoyable and
+            exciting
           </p>
         </div>
         <div>
@@ -50,8 +52,8 @@ const Home = () => {
           <div className="hero my-40">
             <div className="hero-content flex-col lg:flex-row">
               <div className="w-1/2">
-                <h1 className="text-xl lg:text-3xl font-bold">
-                  These valleys in Kashmir are breathtakingly beautiful!
+                <h1 className="text-3xl lg:text-5xl font-bold">
+                  Kashmir valleys
                 </h1>
                 <p className="py-6 text-justify">
                   More often than not, we associate paradise with a place of

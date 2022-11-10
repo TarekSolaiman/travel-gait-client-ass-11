@@ -2,26 +2,43 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-toastify";
 import MyReviowCart from "./MyReviowCart";
+import useTitle from "../../../hooks/useTitle";
 
 const MyReviow = () => {
-  const { user } = useContext(AuthContext);
+  useTitle("Myreviow");
+  const { user, logOut } = useContext(AuthContext);
   const [allreviows, setAllreviows] = useState([]);
   const [loadAgin, setLoadAgin] = useState(false);
 
   // loade all reviow data in db
   useEffect(() => {
-    fetch(`http://localhost:5000/allreviows?email=${user.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/allreviows?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("travel-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut()
+            .then(() => {})
+            .catch((e) => {
+              toast.error(e.message, {
+                autoClose: 1000,
+              });
+            });
+        }
+        return res.json();
+      })
       .then((data) => {
         setAllreviows(data);
-        // console.log(data);
+        console.log(data);
       })
       .catch((e) => {
         toast.error(e.message, {
           autoClose: 1000,
         });
       });
-  }, [loadAgin]);
+  }, [loadAgin, user.email]);
   // console.log(reviows);
 
   // delete data function

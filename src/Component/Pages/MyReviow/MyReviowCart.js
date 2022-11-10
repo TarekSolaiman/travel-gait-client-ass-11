@@ -1,4 +1,5 @@
 import React from "react";
+import avater from "../../../images/avatar.png";
 import { Link } from "react-router-dom";
 
 const MyReviowCart = ({ revw, deleteReviow }) => {
@@ -7,7 +8,7 @@ const MyReviowCart = ({ revw, deleteReviow }) => {
       <div className="flex justify-between items-center">
         <img
           className="w-10 h-10 rounded-full mr-3 lg:mr-10"
-          src={revw.userImg}
+          src={revw.userImg ? revw.userImg : avater}
           alt=""
         />
         <p className="text-md lg:text-lg font-semibold text-gray-500">
