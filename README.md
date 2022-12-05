@@ -1,6 +1,6 @@
-/==================================MY WEBSITE DETAIL================================/
-/======================================TRAVER GAIT==================================/
-
+/==========================MY WEBSITE DETAIL===========================/
+/=============================TRAVER GAIT===========================/
+Live site : https://travel-gait-client.web.app
 / web sati name is Travel Gait (this is gite services website )
 / Ther is one navber and so many pages and allso some privet route
 / in the home page you cane see my 3 services and you click see all button go all serices page youo can see all services
@@ -10,8 +10,8 @@
 / iam use firebase hosting for the live site
 / and allso vercel hosting for the server site
 
-/=======================Thank you for the vesit my code and website=================/
-/==================================MY WEBSITE DETAIL================================/
+/================Thank you for the vesit my code and website===============/
+/=======================MY WEBSITE DETAIL=======================/
 
 # Getting Started with Create React App
 

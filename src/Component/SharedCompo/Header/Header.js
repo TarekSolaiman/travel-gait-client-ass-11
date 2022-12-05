@@ -17,7 +17,7 @@ const Header = () => {
       .catch((e) => console.log(e.message));
   };
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-200">
       <div className="flex justify-between container mx-auto">
         <div className="">
           <Link

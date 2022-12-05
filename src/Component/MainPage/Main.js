@@ -6,7 +6,7 @@ import Header from "../SharedCompo/Header/Header";
 const Main = () => {
   return (
     <div>
-      <section className="">
+      <section className="sticky top-0 w-full">
         <Header />
       </section>
       <section>
